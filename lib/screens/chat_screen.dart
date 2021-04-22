@@ -1,3 +1,4 @@
+import 'package:apby/main.dart';
 import 'package:apby/widgets/chat/messages.dart';
 import 'package:apby/widgets/chat/new_message.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,14 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       // Initialize FlutterFire
       appBar: AppBar(title: Text('Sanity media Chat'), actions: [
+        /*RaisedButton(
+          textColor: Colors.white,
+          color: Colors.blue,
+          child: Text('Go to SubPage'),
+          onPressed: () {
+            navigateToSubPage(context);
+          },*/
+
         DropdownButton(
           icon: Icon(Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color),
@@ -41,9 +50,22 @@ class ChatScreen extends StatelessWidget {
               child: Messages(),
             ),
             NewMessage(),
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text('Go to SubPage'),
+              onPressed: () {
+                navigateToSubPage(context);
+              },
+            )
           ],
         ),
       ),
     );
   }
+}
+
+Future navigateToSubPage(context) async {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => MyHomePage()));
 }

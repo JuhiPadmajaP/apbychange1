@@ -37,7 +37,7 @@ class MessageBubble extends StatelessWidget {
                   crossAxisAlignment:
                       isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
+                    /*Text(
                       userName,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class MessageBubble extends StatelessWidget {
                                   .accentTextTheme
                                   .headline1
                                   .color),
-                    ),
+                    ),*/
                     Text(
                       message,
                       style: TextStyle(
