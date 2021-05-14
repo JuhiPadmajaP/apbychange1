@@ -81,10 +81,10 @@ class _UserProfile extends State<UserProfile> {
                     )),
               ],
             )),
-        Padding(
+        /*Padding(
           padding: const EdgeInsets.only(top: 38.0),
           child: youtubePromotion(),
-        )
+        )*/
       ],
     );
   }
@@ -104,39 +104,39 @@ class _UserProfile extends State<UserProfile> {
 
   void _showDialog() async {
     TextEditingController _changeNameTextController = TextEditingController();
-
-    child:
-    new AlertDialog(
-      contentPadding: const EdgeInsets.all(16.0),
-      content: new Row(
-        children: <Widget>[
-          new Expanded(
-            child: new TextField(
-              autofocus: true,
-              decoration: new InputDecoration(
-                  labelText: 'Type your other nick name',
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  hintText: 'ex) loydkim',
-                  icon: Icon(Icons.edit)),
-              controller: _changeNameTextController,
+    await showDialog(
+        builder: (context) => new AlertDialog(
+              contentPadding: const EdgeInsets.all(16.0),
+              content: new Row(
+                children: <Widget>[
+                  new Expanded(
+                    child: new TextField(
+                      autofocus: true,
+                      decoration: new InputDecoration(
+                          labelText: 'Type your other nick name',
+                          labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                          hintText: 'ex) loydkim',
+                          icon: Icon(Icons.edit)),
+                      controller: _changeNameTextController,
+                    ),
+                  )
+                ],
+              ),
+              actions: <Widget>[
+                new FlatButton(
+                    child: const Text('CANCEL'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+                new FlatButton(
+                    child: const Text('SUBMIT'),
+                    onPressed: () {
+                      _updateMyData(_changeNameTextController.text,
+                          widget.myData.myThumbnail);
+                      Navigator.pop(context);
+                    })
+              ],
             ),
-          )
-        ],
-      ),
-      actions: <Widget>[
-        new FlatButton(
-            child: const Text('CANCEL'),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-        new FlatButton(
-            child: const Text('SUBMIT'),
-            onPressed: () {
-              _updateMyData(
-                  _changeNameTextController.text, widget.myData.myThumbnail);
-              Navigator.pop(context);
-            })
-      ],
-    );
+        context: context);
   }
 }

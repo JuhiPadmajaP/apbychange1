@@ -158,15 +158,17 @@ class _ContentDetail extends State<ContentDetail> {
   Future<void> _handleSubmitted(String text) async {
     try {
       await FBCloudStore.commentToPost(
-          _replyUserID == null ? widget.postData['userName'] : _replyUserID,
+          _replyUserID == null
+              ? widget.postData.data()['userName']
+              : _replyUserID,
           _replyCommentID == null
-              ? widget.postData['commentID']
+              ? widget.postData.data()['commentID']
               : _replyCommentID,
-          widget.postData['postID'],
+          widget.postData.data()['postID'],
           _msgTextController.text,
           widget.myData,
           _replyUserID == null
-              ? widget.postData['FCMToken']
+              ? widget.postData.data()['FCMToken']
               : _replyUserFCMToken);
       await FBCloudStore.updatePostCommentCount(widget.postData);
       FocusScope.of(context).requestFocus(FocusNode());

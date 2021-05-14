@@ -56,9 +56,57 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - images/001-panda.png
+    - images/002-lion.png
+    - images/003-tiger.png
+    - images/004-bear-1.png
+    - images/005-parrot.png
+    - images/006-rabbit.png
+    - images/007-chameleon.png
+    - images/008-sloth.png
+    - images/009-elk.png
+    - images/010-llama.png
+    - images/011-ant-eater.png
+    - images/012-eagle.png
+    - images/013-crocodile.png
+    - images/014-beaver.png
+    - images/015-hamster.png
+    - images/016-walrus.png
+    - images/017-bear.png
+    - images/018-cheetah.png
+    - images/019-kangaroo.png
+    - images/020-duck.png
+    - images/021-goose.png
+    - images/022-lemur.png
+    - images/023-ostrich.png
+    - images/024-owl.png
+    - images/026-penguin.png
+    - images/025-boar.png
+    - images/027-camel.png
+    - images/028-raccoon.png
+    - images/029-hippo.png
+    - images/030-monkey.png
+    - images/031-meerkat.png
+    - images/032-snake.png
+    - images/033-zebra.png
+    - images/034-donkey.png
+    - images/035-bull.png
+    - images/036-goat-1.png
+    - images/037-goat.png
+    - images/038-horse.png
+    - images/039-wolf.png
+    - images/040-koala.png
+    - images/041-hedgehog.png
+    - images/042-frog.png
+    - images/043-turtle.png
+    - images/044-gorilla.png
+    - images/045-giraffe.png
+    - images/046-deer.png
+    - images/047-rhinoceros.png
+    - images/048-elephant.png
+    - images/049-puma.png
+    - images/050-fox.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -177,13 +177,15 @@ class _WritePost extends State<WritePost> {
 
   Future<void> _getImageAndCrop() async {
     File imageFileFromGallery =
+        // ignore: deprecated_member_use
         await ImagePicker.pickImage(source: ImageSource.gallery);
     if (imageFileFromGallery != null) {
       File cropImageFile = await Utils.cropImageFile(
-          imageFileFromGallery); //await cropImageFile(imageFileFromGallery);
+          imageFileFromGallery); //await Utils.cropImageFile(
+      // imageFileFromGallery);
       if (cropImageFile != null) {
         setState(() {
-          _postImageFile = cropImageFile;
+          _postImageFile = imageFileFromGallery;
         });
       }
     }

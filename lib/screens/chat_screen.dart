@@ -53,7 +53,7 @@ class ChatScreen extends StatelessWidget {
             RaisedButton(
               textColor: Colors.white,
               color: Colors.blue,
-              child: Text('Go to SubPage'),
+              child: Text('Go to HomePage'),
               onPressed: () {
                 navigateToSubPage(context);
               },

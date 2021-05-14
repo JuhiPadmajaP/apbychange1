@@ -120,7 +120,7 @@ class FBCloudStore {
         .doc(postID)
         .collection('comment')
         .doc(commentID)
-        .set({
+        .update({
       'toUserID': toUserID,
       'commentID': commentID,
       'toCommentID': toCommentID,
@@ -131,7 +131,8 @@ class FBCloudStore {
       'commentLikeCount': 0,
       'FCMToken': myFCMToken
     });
-    await FBCloudMessaging.instance.sendNotificationMessageToPeerUser(
+    /*  await FBCloudMessaging.instance.sendNotificationMessageToPeerUser(
         commentContent, '${userProfile.myName} was commented', postFCMToken);
+  }*/
   }
 }

@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     FBCloudMessaging.instance.takeFCMTokenWhenAppLaunch();
     FBCloudMessaging.instance.initLocalNotification();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = new TabController(vsync: this, length: 2);
     _tabController.addListener(_handleTabSelection);
     _takeMyData();
     super.initState();
@@ -130,19 +130,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Flutter Thread example'),
-          centerTitle: true,
-          /*actions: [
-            RaisedButton(
-              textColor: Colors.white,
-              color: Colors.redAccent,
-              child: Text('Back to Main Page'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
-          ]*/),
+      appBar: AppBar(title: Text('Flutter !'), centerTitle: true, actions: [
+        RaisedButton(
+          textColor: Colors.white,
+          color: Colors.redAccent,
+          child: Text('Back to Main Page'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
+      ]),
       body: Stack(children: <Widget>[
         TabBarView(controller: _tabController, children: [
           ThreadMain(
