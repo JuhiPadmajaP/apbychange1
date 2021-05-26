@@ -38,7 +38,7 @@ class _CommentItem extends State<CommentItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: widget.data['toCommentID'] == null
+      padding: widget.data.data()['toCommentID'] == null
           ? EdgeInsets.all(8.0)
           : EdgeInsets.fromLTRB(34.0, 8.0, 8.0, 8.0),
       child: Stack(
@@ -49,10 +49,10 @@ class _CommentItem extends State<CommentItem> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(6.0, 2.0, 10.0, 2.0),
                 child: Container(
-                    width: widget.data['toCommentID'] == null ? 48 : 40,
-                    height: widget.data['toCommentID'] == null ? 48 : 40,
-                    child:
-                        Image.asset('images/${widget.data['userThumbnail']}')),
+                    width: widget.data.data()['toCommentID'] == null ? 48 : 40,
+                    height: widget.data.data()['toCommentID'] == null ? 48 : 40,
+                    child: Image.asset(
+                        'images/${widget.data.data()['userThumbnail']}')),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,29 +66,31 @@ class _CommentItem extends State<CommentItem> {
                           Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Text(
-                              widget.data['userName'],
+                              widget.data.data()['userName'],
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 4.0),
-                            child: widget.data['toCommentID'] == null
+                            child: widget.data.data()['toCommentID'] == null
                                 ? Text(
-                                    widget.data['commentContent'],
+                                    widget.data.data()['commentContent'],
                                     maxLines: null,
                                   )
                                 : RichText(
                                     text: TextSpan(
                                       children: <TextSpan>[
                                         TextSpan(
-                                            text: widget.data['toUserID'],
+                                            text:
+                                                widget.data.data()['toUserID'],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.blue[800])),
                                         TextSpan(
                                             text: Utils.commentWithoutReplyUser(
-                                                widget.data['commentContent']),
+                                                widget.data
+                                                    .data()['commentContent']),
                                             style:
                                                 TextStyle(color: Colors.black)),
                                       ],
@@ -99,7 +101,7 @@ class _CommentItem extends State<CommentItem> {
                       ),
                     ),
                     width: widget.size.width -
-                        (widget.data['toCommentID'] == null ? 90 : 110),
+                        (widget.data.data()['toCommentID'] == null ? 90 : 110),
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -113,15 +115,14 @@ class _CommentItem extends State<CommentItem> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Text(Utils.readTimestamp(
-                              widget.data['commentTimeStamp'])),
+                              widget.data.data()['commentTimeStamp'])),
                           GestureDetector(
-                              onTap: () => _updateLikeCount(_currentMyData
-                                              .myLikeCommnetList !=
-                                          null &&
-                                      _currentMyData.myLikeCommnetList
-                                          .contains(widget.data['commentID'])
-                                  ? true
-                                  : false),
+                              onTap: () => _updateLikeCount(
+                                  _currentMyData.myLikeCommnetList != null &&
+                                          _currentMyData.myLikeCommnetList.contains(
+                                              widget.data.data()['commentID'])
+                                      ? true
+                                      : false),
                               child: Text('Like',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -132,20 +133,20 @@ class _CommentItem extends State<CommentItem> {
                                                       widget.data['commentID'])
                                           ? Colors.blue[900]
                                           : Colors.grey[700]))),
-                          GestureDetector(
+                          /* GestureDetector(
                               onTap: () {
                                 widget.replyComment([
-                                  widget.data['userName'],
-                                  widget.data['commentID'],
-                                  widget.data['FCMToken']
+                                  widget.data.data()['userName'],
+                                  widget.data.data()['commentID'],
+                                  widget.data.data()['FCMToken']
                                 ]);
-//                                _replyComment(widget.data['userName'],widget.data['commentID'],widget.data['FCMToken']);
+//_replyComment(widget.data['userName'],widget.data['commentID'],widget.data['FCMToken']);
                                 print('leave comment of commnet');
                               },
                               child: Text('Reply',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.grey[700]))),
+                                      color: Colors.grey[700]))),*/
                         ],
                       ),
                     ),
@@ -154,7 +155,7 @@ class _CommentItem extends State<CommentItem> {
               ),
             ],
           ),
-          widget.data['commentLikeCount'] > 0
+          widget.data.data()['commentLikeCount'] > 0
               ? Positioned(
                   bottom: 10,
                   right: 0,
@@ -169,7 +170,7 @@ class _CommentItem extends State<CommentItem> {
                               size: 14,
                               color: Colors.blue[900],
                             ),
-                            Text('${widget.data['commentLikeCount']}',
+                            Text('${widget.data.data()['commentLikeCount']}',
                                 style: TextStyle(fontSize: 14)),
                           ],
                         ),

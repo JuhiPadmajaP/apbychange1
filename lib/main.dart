@@ -133,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       appBar: AppBar(title: Text('Flutter !'), centerTitle: true, actions: [
         RaisedButton(
           textColor: Colors.white,
-          color: Colors.redAccent,
+          color: Colors.purpleAccent,
           child: Text('Back to Main Page'),
           onPressed: () {
             Navigator.pop(context);

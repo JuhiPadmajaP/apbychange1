@@ -120,7 +120,7 @@ class FBCloudStore {
         .doc(postID)
         .collection('comment')
         .doc(commentID)
-        .update({
+        .set({
       'toUserID': toUserID,
       'commentID': commentID,
       'toCommentID': toCommentID,

@@ -117,7 +117,9 @@ class Utils {
     List<int> replyCommentIndex = List<int>();
     for (int i = 0; i < _originalData.length; i++) {
       for (int j = 0; j < _originalData.length; j++) {
-        if (_originalData[i]['commentID'] == _originalData[j]['toCommentID']) {
+        // if (_originalData[i]['commentID'] == _originalData[j]['toCommentID']) {
+        if (_originalData[j].data().containsKey("toCommentID") &&
+            _originalData[i]['commentID'] == _originalData[j]['toCommentID']) {
           List<DocumentSnapshot> savedCommentData;
           if (commentDocuments[_originalData[i]['commentID']] != null &&
               commentDocuments[_originalData[i]['commentID']].length > 0) {
@@ -145,9 +147,9 @@ class Utils {
 
     // Add list to comment
     for (int i = 0; i < _originalData.length; i++) {
-      if (commentDocuments[_originalData[i]['commentID']] != null) {
+      if (commentDocuments[_originalData[i].data()['commentID']] != null) {
         _originalData.insertAll(
-            i + 1, commentDocuments[_originalData[i]['commentID']]);
+            i + 1, commentDocuments[_originalData[i].data()['commentID']]);
       }
     }
     return _originalData;
